@@ -1,0 +1,66 @@
+% PIC-IPD Test Configuration
+% Quick test run with particles and interactions
+
+% Global simulation parameters
+timeStep: 1e-6
+maximumNumberOfIterations: 50
+numberOfPatches: 1
+minimumParticlesPerCell: 1
+maximumParticlesPerCell: 100
+specificWeight: 1.0
+simulationType: electron
+axisymmetricFlag: 1
+twoStreamFlag: 0
+
+% Particle and collision parameters
+initialParticlesPerCell: 4
+numCellsWithParticles: 0
+particleDistribution: random
+initialTemperature: 11600.0
+initialPosition: 0.5,0.5
+initialVelocity: 5000.0,0.0
+inletSource: 1
+inletSize: 0.5
+inletFlowRate: 1e-24
+inletVelocity: 5000.0
+propellant: argon
+MCCFrequency: 5
+
+% Field and FDTD parameters
+electricField: 0.0,0.0,0.0
+magneticField: 0.0,0.0,0.0
+FDTDIterations: 1000000
+FDTDFrequency: 101
+
+% Mesh and domain parameters (smaller domain for faster testing)
+userMesh: 1
+domainLength: 0.05
+domainHeight: 0.05
+PICSpacing: 0.01
+FDTDSpacing: 0.005
+meshFilePath: coarseMesh.su2
+meshScalingParameter: 1.0
+
+% Solver and boundary condition parameters
+solverType: GS
+maxSolverIterations: 100
+residualTolerance: 1e-8
+SORParameter: 1.1
+leftBCType: dirichlet
+leftBCValue: 0.0
+rightBCType: dirichlet
+rightBCValue: 10.0
+topBCType: dirichlet
+topBCValue: 0.0
+bottomBCType: dirichlet
+bottomBCValue: 0.0
+
+% Parallelisation parameters
+numberOfThreads: 1
+
+% Output parameters
+plotFrequency: 5
+tecplotMeshFile: cMesh
+tecplotParticleSolutionFile: cSolution_P
+tecplotNodeSolutionFile: cSolution_N
+tecplotGlobalSolutionFile: cSolution_G
